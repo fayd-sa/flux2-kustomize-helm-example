@@ -4,27 +4,27 @@ metadata:
   name: provider-gcp-storage
 spec:
   package: xpkg.upbound.io/upbound/provider-gcp-storage:v1
-  runtimeConfigRef:
-    name: storage-runtime-config
+  # runtimeConfigRef:
+  #   name: storage-runtime-config
 ---
-apiVersion: pkg.crossplane.io/v1beta1
-kind: DeploymentRuntimeConfig
-metadata:
-  name: storage-runtime-config
-spec:
-  serviceAccountTemplate:
-    metadata:
-      name: crossplane
-      annotations:    
-        iam.gke.io/gcp-service-account: crossplane-digitization-dev@digitization-mvp.iam.gserviceaccount.com
----
-apiVersion: gcp.crossplane.io/v1beta1
-kind: ProviderConfig
-metadata:
-  name: default
-spec:
-  credentials:
-    source: InjectedIdentity
-  projectID: digitization-mvp
+# apiVersion: pkg.crossplane.io/v1beta1
+# kind: DeploymentRuntimeConfig
+# metadata:
+#   name: storage-runtime-config
+# spec:
+#   serviceAccountTemplate:
+#     metadata:
+#       name: crossplane
+#       annotations:    
+#         iam.gke.io/gcp-service-account: crossplane-digitization-dev@digitization-mvp.iam.gserviceaccount.com
+# ---
+# apiVersion: gcp.upbound.io/v1beta1
+# kind: ProviderConfig
+# metadata:
+#   name: default
+# spec:
+#   credentials:
+#     source: InjectedIdentity
+#   projectID: digitization-mvp
 
 

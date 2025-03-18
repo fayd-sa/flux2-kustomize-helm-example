@@ -1,8 +1,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: crossplane-stable
-  namespace: crossplane-system
+  name: upbound-stable
+  namespace: upbound-system
 spec:
   interval: 5m
-  url: https://charts.crossplane.io/stable
+  url: https://charts.upbound.io/stable
