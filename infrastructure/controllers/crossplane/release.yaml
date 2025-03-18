@@ -1,16 +1,16 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: upbound
-  namespace: upbound-system
+  name: crossplane
+  namespace: crossplane-system
 spec:
-  releaseName: upbound
+  releaseName: crossplane
   chart:
     spec:
-      chart: universal-crossplane
+      chart: crossplane
       sourceRef:
         kind: HelmRepository
-        name: upbound-stable
+        name: crossplane-stable
   interval: 50m
   install:
     remediation:
