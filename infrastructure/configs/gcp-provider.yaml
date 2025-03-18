@@ -4,17 +4,19 @@ metadata:
   name: provider-gcp-storage
 spec:
   package: xpkg.upbound.io/upbound/provider-gcp-storage:v1
-  controllerConfigRef:
-    name: my-controller-config  
+  runtimeConfigRef:
+    name: storage-runtime-config
 ---
 apiVersion: pkg.crossplane.io/v1beta1
-kind: ControllerConfig
+kind: DeploymentRuntimeConfig
 metadata:
-  name: my-controller-config
-  annotations:
-    iam.gke.io/gcp-service-account: crossplane-digitization-dev@digitization-mvp.iam.gserviceaccount.com
+  name: storage-runtime-config
 spec:
-  serviceAccountName: crossplane
+  serviceAccountTemplate:
+    metadata:
+      name: crossplane
+      annotations:    
+        iam.gke.io/gcp-service-account: crossplane-digitization-dev@digitization-mvp.iam.gserviceaccount.com
 ---
 apiVersion: gcp.crossplane.io/v1beta1
 kind: ProviderConfig
